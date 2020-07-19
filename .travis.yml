@@ -27,6 +27,6 @@ after_success:
     - docker push fourt/multi-client
     - docker push fourt/multi-nginx
     - docker push fourt/multi-server
-    -docker push fourt/multi-worker
+    - docker push fourt/multi-worker
     
 
