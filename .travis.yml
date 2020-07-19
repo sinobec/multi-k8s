@@ -19,7 +19,6 @@ after_success:
     - docker build -t fourt/multi-nginx ./nginx
     - docker build -t fourt/multi-server ./server
     - docker build -t fourt/multi-worker ./worker
-
 #将上述images push到Docker hub: 
     #需要先login Docker-hub: 在Travis里->设置->增加docker hub的变量,即用户名密码
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
