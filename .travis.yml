@@ -20,12 +20,26 @@ after_success:
     - docker build -t fourt/multi-server ./server
     - docker build -t fourt/multi-worker ./worker
 #将上述images push到Docker hub: 
-    #需要先login Docker-hub: 在Travis里->设置->增加docker hub的变量,即用户名密码
+    #需要先login Docker-hub: 在Travis里->设置->增加docker hub的变量,即用户名
+    #在Docker hub-account-security里生成access token,将此token作为Travis里的DOCKER_PASSWORD变量
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #将images推送到Docker hub
     - docker push fourt/multi-client
     - docker push fourt/multi-nginx
     - docker push fourt/multi-server
     - docker push fourt/multi-worker
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: us-west-1
+    app: multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstalk-us-west-1-258401453509
+    bucket_path: docker-multi
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
     
 
