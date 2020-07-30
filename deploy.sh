@@ -12,5 +12,5 @@ docker push fourt/multi-worker:$SHA
 
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=fourt/multi-server:$SHA
-kubectl set image deployments/client-deployment client=fourt/multi-server:$SHA
-kubectl set image deployments/worker-deployment worker=fourt/multi-server:$SHA
+kubectl set image deployments/client-deployment client=fourt/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=fourt/multi-worker:$SHA
