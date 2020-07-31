@@ -11,8 +11,8 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - slientcloud.com
-      - www.slientcloud.com
+        - slientcloud.com
+        - www.slientcloud.com
       secretName: k8s-multi-com
   rules:
     - host: slientcloud.com
