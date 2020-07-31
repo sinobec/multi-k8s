@@ -11,11 +11,11 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - dance.gq
-      - www.dance.gq
+      - slientcloud.com
+      - www.slientcloud.com
       secretName: k8s-multi-com
   rules:
-    - host: dance.gq
+    - host: slientcloud.com
       http:
         paths:
           - path: /?(.*)
@@ -26,7 +26,7 @@ spec:
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
-    - host: www.dance.gq
+    - host: www.slientcloud.com
       http:
         paths:
           - path: /?(.*)

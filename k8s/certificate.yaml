@@ -7,14 +7,14 @@ spec:
     issuerRef: 
         name: letsencrypt-prod
         kind: ClusterIssuer
-        commonName: dance.gq
+        commonName: slientcloud.com
         dnsNames:
-            - dance.gq
-            - www.dance.gq
+            - slientcloud.com
+            - www.slientcloud.com
         acme:
             config:
                 - http01:
                     ingressClass: nginx
                 domains:
-                    - dance.gq
-                    - www.dance.gq
+                    - slientcloud.com
+                    - www.slientcloud.com
